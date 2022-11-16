@@ -1,6 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { NotificationText } from './Feedback.styled';
 
-export const Notification = () => (
-  <NotificationText>There is no feedback...</NotificationText>
+export const Notification = ({ message }) => (
+  <NotificationText>{message}</NotificationText>
 );
+
+Notification.propTypes = {
+  message: PropTypes.string,
+};
