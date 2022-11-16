@@ -1,15 +1,16 @@
 import styled from '@emotion/styled';
 
-export const FeedbackSection = styled.div`
-  padding: 0;
-  margin: 0;
+export const SectionContainer = styled.div`
+  list-style: none;
 `;
 
-export const FeedbackText = styled.p`
+export const Title = styled.h2`
+  margin-top: 30px;
   margin-bottom: 30px;
+
   color: ${props => props.theme.colors.black};
   font-size: ${props => props.theme.fontSizes.l};
-  line-height: ${props => props.theme.lineHeights.heading};
+  line-height: ${props => props.theme.lineHeights.body};
   font-weight: ${props => props.theme.fontWeights.bold};
   text-align: center;
 `;
@@ -40,24 +41,13 @@ export const FeedbackButton = styled.button`
   }
 `;
 
-export const Notification = styled.p`
+export const NotificationText = styled.p`
   color: ${props => props.theme.colors.green};
   font-size: ${props => props.theme.fontSizes.s};
   line-height: ${props => props.theme.lineHeights.heading};
 `;
 
 // // ========================================================
-
-export const StatisticsTitle = styled.h2`
-  margin-top: 30px;
-  margin-bottom: 30px;
-
-  color: ${props => props.theme.colors.black};
-  font-size: ${props => props.theme.fontSizes.l};
-  line-height: ${props => props.theme.lineHeights.body};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  text-align: center;
-`;
 
 export const StatisticsList = styled.ul`
   margin-left: 20px;

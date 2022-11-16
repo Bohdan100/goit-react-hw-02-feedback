@@ -8,17 +8,29 @@ import {
   StatisticsText,
 } from './Feedback.styled';
 
-export const Statistics = ({ names, total, positivePercentage }) => {
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  // names,
+  total,
+  positivePercentage,
+}) => {
   return (
     <>
       <StatisticsList>
-        {names.map(name => {
+        <StatisticsItem key={shortid.generate()}>good: {good}</StatisticsItem>
+        <StatisticsItem key={shortid.generate()}>
+          neutral: {neutral}
+        </StatisticsItem>
+        <StatisticsItem key={shortid.generate()}>bad: {bad}</StatisticsItem>
+        {/* {names.map(name => {
           return (
             <StatisticsItem key={shortid.generate()}>
               {name.join(': ')}
             </StatisticsItem>
           );
-        })}
+        })} */}
       </StatisticsList>
       <StatisticsText>Total: {total}</StatisticsText>
       <StatisticsText>Positive feedback: {positivePercentage}%</StatisticsText>
@@ -27,9 +39,12 @@ export const Statistics = ({ names, total, positivePercentage }) => {
 };
 
 Statistics.propTypes = {
-  names: PropTypes.arrayOf(
-    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
-  ),
+  // names: PropTypes.arrayOf(
+  //   PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  // ),
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
   positivePercentage: PropTypes.number.isRequired,
 };

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import Section from './Section';
+import { Section } from './Section';
+import { FeedbackOptions } from './FeedbackOptions';
+import { Statistics } from './Statistics';
+import { Notification } from './Notification';
 
 export class Feedback extends Component {
   state = {
@@ -33,21 +37,49 @@ export class Feedback extends Component {
 
   render() {
     const buttonsNames = Object.keys(this.state);
-    const buttonsEntries = Object.entries(this.state);
     const totalFeedback = this.countTotalFeedback();
     const PositiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
+    // const buttonsEntries = Object.entries(this.state);
+    const { good, neutral, bad } = this.state;
 
     return (
       <div>
-        <Section
-          madeFeedback={totalFeedback}
-          options={buttonsNames}
-          onLeaveFeedback={this.handleIncrement}
-          names={buttonsEntries}
-          total={totalFeedback}
-          positivePercentage={PositiveFeedbackPercentage}
-        />
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={buttonsNames}
+            onLeaveFeedback={this.handleIncrement}
+          />
+        </Section>
+
+        <Section title="Statistics">
+          {totalFeedback > 0 ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              // names={buttonsEntries}
+              total={totalFeedback}
+              positivePercentage={PositiveFeedbackPercentage}
+            />
+          ) : (
+            <Notification />
+          )}
+        </Section>
       </div>
     );
   }
 }
+
+Feedback.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
+  onLeaveFeedback: PropTypes.func,
+  madeFeedback: PropTypes.number,
+  // names: PropTypes.arrayOf(
+  //   PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  // ),
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
+};

@@ -1,16 +1,16 @@
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './components/constants/theme';
+import { GlobalStyle } from './GlobalStyle';
 
 import { AppContainer } from './App.styled';
 import { Feedback } from './components/Feedback';
-import { Form } from './components/Form';
 
 export const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <AppContainer>
         <Feedback />
-        <Form />
       </AppContainer>
     </ThemeProvider>
   );
