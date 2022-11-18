@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 
 import {
   StatisticsList,
@@ -19,14 +18,12 @@ export const Statistics = ({
   return (
     <>
       <StatisticsList>
-        <StatisticsItem key={shortid.generate()}>good: {good}</StatisticsItem>
-        <StatisticsItem key={shortid.generate()}>
-          neutral: {neutral}
-        </StatisticsItem>
-        <StatisticsItem key={shortid.generate()}>bad: {bad}</StatisticsItem>
+        <StatisticsItem>good: {good}</StatisticsItem>
+        <StatisticsItem>neutral: {neutral}</StatisticsItem>
+        <StatisticsItem>bad: {bad}</StatisticsItem>
         {/* {names.map(name => {
           return (
-            <StatisticsItem key={shortid.generate()}>
+            <StatisticsItem>
               {name.join(': ')}
             </StatisticsItem>
           );

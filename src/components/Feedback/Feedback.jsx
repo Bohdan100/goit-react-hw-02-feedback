@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import { Section } from './Section';
 import { FeedbackOptions } from './FeedbackOptions';
@@ -69,17 +68,3 @@ export class Feedback extends Component {
     );
   }
 }
-
-Feedback.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string.isRequired),
-  onLeaveFeedback: PropTypes.func,
-  madeFeedback: PropTypes.number,
-  // names: PropTypes.arrayOf(
-  //   PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
-  // ),
-  good: PropTypes.number,
-  neutral: PropTypes.number,
-  bad: PropTypes.number,
-  total: PropTypes.number,
-  positivePercentage: PropTypes.number,
-};
